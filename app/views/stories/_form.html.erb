@@ -1,0 +1,21 @@
+
+<%= form_for(story) do |form| %>
+    <div class="field">
+
+        <%= form.label :故事標題 , class:'is-size-4 has-text-weight-medium' %>
+        <%= form.text_field :title, class: 'input is-warning' %>
+
+    </div>
+    <div class="field">
+
+            <%= form.label :故事內文 , class:'is-size-4 has-text-weight-medium' %>
+            <%= form.text_area :content, rows:10 , class: 'textarea is-primary is-medium' %>
+    
+    </div>
+    <div class="field">
+        <%= form.submit '儲存草稿' , class:'button is-light is-large' %>  &nbsp; &nbsp; &nbsp;
+        <%= form.submit '發布故事' , class:'button is-primary is-large' %>
+    </div>
+
+
+<% end %>
