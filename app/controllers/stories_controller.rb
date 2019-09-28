@@ -1,6 +1,6 @@
 class StoriesController < ApplicationController
     before_action :authenticate_user!
-    before_action :find_story, only: [:edit, :update, :destory]
+    before_action :find_story, only: [:edit, :update, :destroy]
 
     def new
         @story = current_user.stories.new
@@ -25,12 +25,24 @@ class StoriesController < ApplicationController
     def create
         @story = current_user.stories.new(story_params)
 
+        @story.status = 'published' if params[:publish]    
+
         if @story.save
-            redirect_to stories_path, notice: "新增成功"
+            if params[:publish]
+              redirect_to stories_path, notice: "故事發布成功"
+            else
+              redirect_to edit_story_path(@story), notice: '故事存入草稿中'
+            end
         else
             render :new
         end
     end
+
+    def destroy
+        @story.destroy
+        redirect_to stories_path, notice:"故事已刪除"
+    end
+
     private
     def story_params
         params.require(:story).permit(:title, :content)
