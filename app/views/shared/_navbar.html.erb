@@ -25,13 +25,13 @@
                  <%= current_user.email %>
                 </a>
               <div class="navbar-dropdown">
-              <%= link_to "編輯會員資料" , edit_user_registration_path , method: 'get', class:"navbar-item" %>
+              <%= link_to "會員資料" , edit_user_registration_path , method: 'get', class:"navbar-item" %>
               <hr class="navbar-divider">
               <%= link_to "新增故事" , new_story_path ,  class:"navbar-item" %>
               <%= link_to "故事列表" , stories_path , class:"navbar-item" %>
                                         
                 <hr class="navbar-divider">
-                  <%= link_to "登出" ,destroy_user_session_path, class: "navbar-item" , data: {confirm: "確定登出?"} %>
+                  <%= link_to "登出" , destroy_user_session_path , class: "navbar-item" , data: {confirm: "確定登出?"} , method: 'delete' %>
                 </div>
             </div>
             </div>
