@@ -2,6 +2,11 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+  <br>
+  <div class="field">
+    <%= f.label :username, "使用者名稱" %><br />
+    <%= f.text_field :username , class: "input" %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -31,5 +36,5 @@
     <%= f.submit "註冊", class:"button is-primary" %>
   </div>
 <% end %>
-
+<hr>
 <%= render "devise/shared/links" %>

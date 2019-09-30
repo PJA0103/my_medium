@@ -1,5 +1,5 @@
 <h2>登入帳號</h2>
-
+<br>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -26,5 +26,6 @@
     <%= f.submit "登入", class:"button is-light" %>
   </div>
 <% end %>
+<hr>
 
 <%= render "devise/shared/links" %>

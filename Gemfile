@@ -30,7 +30,7 @@ gem 'aasm', '~> 5.0', '>= 5.0.6'
 gem 'friendly_id', '~> 5.3'
 gem 'babosa', '~> 1.0', '>= 1.0.3'
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.9', '>= 4.9.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

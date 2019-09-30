@@ -3,3 +3,9 @@
  *= require_tree .
  *= require_self
  */
+
+ .navbar-link{
+     .image{
+         border-radius: 50px;
+     }
+ }
