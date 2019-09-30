@@ -21,10 +21,10 @@ class StoriesController < ApplicationController
                 @story.publish!
                 redirect_to stories_path, notice: '更新成功，已發佈'
               when params[:unpublish]
-                @story.unpublished!
+                @story.unpublish!
                 redirect_to stories_path, notice: '儲存至草稿'
               else
-                redirect_to edit_story_path(@story), notice: '存至草稿'
+                redirect_to stories_path, notice: '更新儲存'
             end
 
         else
@@ -58,6 +58,6 @@ class StoriesController < ApplicationController
         params.require(:story).permit(:title, :content)
     end
     def find_story
-        @story = current_user.stories.find(params[:id])
+        @story = current_user.stories.friendly.find(params[:id])
     end
 end

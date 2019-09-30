@@ -1,4 +1,6 @@
 class Story < ApplicationRecord
+  extend FriendlyId
+  friendly_id :slug_choice, use: :slugged
   include AASM
   belongs_to :user
   validates :title, presence: true
@@ -22,6 +24,19 @@ class Story < ApplicationRecord
       transitions from: :published, to: :draft
     end
 
+  end
+  def normalize_friendly_id(input)
+    input.to_s.to_slug.normalize(transliterations: :russian).to_s
+  end
+
+  private
+
+
+  def slug_choice
+    [
+    :title,
+    [:title, SecureRandom.hex[0,6]]
+    ]
   end
 
 end
