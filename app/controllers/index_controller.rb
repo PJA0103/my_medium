@@ -4,4 +4,13 @@ class IndexController < ApplicationController
         @stories = Story.order(created_at: :desc).includes(:user)
     end
     
+    def show
+
+    end
+
+
+    def user
+
+    end
+
 end
